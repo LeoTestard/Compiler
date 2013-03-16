@@ -42,11 +42,6 @@ postfix_expression
     | postfix_expression Dec
     ;
 
-argument_expression_list
-    : assignment_expression
-    | argument_expression_list ',' assignment_expression
-    ;
-
 unary_expression
     : postfix_expression
     | Inc unary_expression
@@ -56,6 +51,16 @@ unary_expression
     | SizeOf '(' type_name ')'
     ;
 
+cast_expression
+    : unary_expression
+    | '(' type_name ')' cast_expression
+    ;
+
+argument_expression_list
+    : assignment_expression
+    | argument_expression_list ',' assignment_expression
+    ;
+
 unary_operator
     : '&'
     | '*'
@@ -63,11 +68,6 @@ unary_operator
     | '-'
     | '~'
     | '!'
-    ;
-
-cast_expression
-    : unary_expression
-    | '(' type_name ')' cast_expression
     ;
 
 multiplicative_expression
