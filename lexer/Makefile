@@ -2,7 +2,9 @@ SRC = lexer.l
 C_SRC = $(SRC:.l=.cpp)
 C_HDR = $(SRC:.l=.hpp)
 TARGET = $(C_SRC:.cpp=.o)
-INCS = -I../parser/
+
+CXXFLAGS = -std=c++11 # -Wall -Wextra -Werror
+INCS = -I../parser/ -I../inc
 
 all: $(TARGET)
 

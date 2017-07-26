@@ -1,12 +1,12 @@
 TARGET = main
-SRCS = $(TARGET).cpp
+SRCS = $(TARGET).cpp declarator.cpp declaration.cpp specifiers.cpp tree.cpp identifier.cpp constant.cpp errors.cpp program.cpp
 
 LEXER = lexer/lexer.o
 PARSER = parser/parser.o
 
 OBJS = $(SRCS:.cpp=.o)
-CXXFLAGS = -Wall -Wextra -Wall
-INCS = -Ilexer/ -Iparser/
+CXXFLAGS = -std=c++11 -Wall -Wextra -Werror
+INCS = -Ilexer/ -Iparser/ -Iinc/
 LIBS = -lstdc++
 
 all: $(TARGET)
